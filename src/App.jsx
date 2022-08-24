@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // const baseUrl = 'https://boiling-refuge-66454.herokuapp.com/images';
 
 const App = () => {
-  const a = 1;  
+  const a = 1
   // const [items, setItems] = useState([]);
   // const [activePictureData, setActivePictureData] = useState(null);
   // const [showModal, setShowModal] = useState(false);
