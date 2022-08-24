@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { Jumbotron, Alert } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
 // import Card from './Card.jsx';
 // import MyModal from './MyModal.jsx';
@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // const baseUrl = 'https://boiling-refuge-66454.herokuapp.com/images';
 
 const App = () => {
+  const a = 1;  
   // const [items, setItems] = useState([]);
   // const [activePictureData, setActivePictureData] = useState(null);
   // const [showModal, setShowModal] = useState(false);
@@ -91,11 +92,11 @@ const App = () => {
   //   );
   // }
 
-  return (
+  return ( 
     <>
-      <Jumbotron className="text-center">
-        <h1>TEST APP</h1>
-      </Jumbotron>
+      <Button variant="primary">
+          Primary Button
+        </Button>
       {/* {!showErrorBlock ? (
         <div className="container">
           <div className="row justify-content-center">
