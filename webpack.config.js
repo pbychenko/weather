@@ -25,4 +25,7 @@ module.exports = {
       template: 'template.html',
     }),
   ],
+  devServer: {
+    open: true,
+  },
 };
