@@ -1,14 +1,15 @@
-// import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-// import Card from './Card.jsx';
-// import MyModal from './MyModal.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import Container from 'react-bootstrap/Container';
+import CityInput from './CityInput';
 
-// const baseUrl = 'https://boiling-refuge-66454.herokuapp.com/images';
+
+const baseUrl = 'https://api.openweathermap.org/data';
 
 const App = () => {
-  const a = 1
   // const [items, setItems] = useState([]);
   // const [activePictureData, setActivePictureData] = useState(null);
   // const [showModal, setShowModal] = useState(false);
@@ -91,24 +92,28 @@ const App = () => {
   //     </Alert>
   //   );
   // }
+  const [key, setKey] = useState('today');
 
-  return ( 
+  return (
     <>
-      <Button variant="primary">
-          Primary Button
-        </Button>
-      {/* {!showErrorBlock ? (
-        <div className="container">
-          <div className="row justify-content-center">
-            {renderPictures()}
-          </div>
-          {renderModal()}
-        </div>
-      ) : (
-      <Alert variant='info' className="text-center">
-        Something wrong with newtwork please try later
-      </Alert>
-      )} */}
+      <Container>
+        <Tabs
+          defaultActiveKey="home"
+          // transition={false}
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+          className="mb-3"
+          fill
+        >
+          <Tab eventKey="today" title="Погода сегодня">
+            <CityInput />
+          </Tab>
+          <Tab eventKey="future" title="Погода в будущем">
+            <CityInput />
+          </Tab>
+      </Tabs>
+      </Container>
     </>
   );
 };
