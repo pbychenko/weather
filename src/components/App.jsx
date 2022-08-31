@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
-import CityInput from './CityInput';
+import CityInput from './CityInput.jsx';
 
-
-const baseUrl = 'https://api.openweathermap.org/data';
+// const baseUrl = 'https://api.openweathermap.org/data';
+// const cities = ['almaty', 'moscow', 'minsk', 'kiev'];
 
 const App = () => {
   // const [items, setItems] = useState([]);
@@ -97,7 +97,7 @@ const App = () => {
   return (
     <>
       <Container>
-        <Tabs
+        {/* <Tabs
           defaultActiveKey="home"
           // transition={false}
           id="controlled-tab-example"
@@ -106,13 +106,13 @@ const App = () => {
           className="mb-3"
           fill
         >
-          <Tab eventKey="today" title="Погода сегодня">
+          <Tab eventKey="today" title="Погода сегодня"> */}
             <CityInput />
-          </Tab>
-          <Tab eventKey="future" title="Погода в будущем">
+          {/* </Tab> */}
+          {/* <Tab eventKey="future" title="Погода в будущем">
             <CityInput />
-          </Tab>
-      </Tabs>
+          </Tab> */}
+      {/* </Tabs> */}
       </Container>
     </>
   );
