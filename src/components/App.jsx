@@ -5,6 +5,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
 import CityInput from './CityInput.jsx';
+import TodayCard from './TodayCard.jsx';
+import ForeCast from './ForeCast.jsx';
 
 // const baseUrl = 'https://api.openweathermap.org/data';
 // const cities = ['almaty', 'moscow', 'minsk', 'kiev'];
@@ -107,7 +109,9 @@ const App = () => {
           fill
         >
           <Tab eventKey="today" title="Погода сегодня"> */}
-            <CityInput />
+            {/* <CityInput /> */}
+            <TodayCard />
+            <ForeCast />
           {/* </Tab> */}
           {/* <Tab eventKey="future" title="Погода в будущем">
             <CityInput />
