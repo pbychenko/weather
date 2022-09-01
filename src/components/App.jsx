@@ -6,7 +6,7 @@ import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
 
-const baseUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat=43.25&lon=76.95&units=metric&appid=260023c9f57441c591cecb63eb4bde59';
+const baseUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=43.25&lon=76.95&units=metric&appid=${token}`;
 // const cities = ['almaty', 'moscow', 'minsk', 'kiev'];
 
 const App = () => {
