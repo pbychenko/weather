@@ -1,39 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
-import data from '../data.json';
 
-// const parsed = JSON.parse(data);
-
-
-const ForecastCard = () => (
-  <>
+const ForecastCard = ({ dayData }) => {
+  const day = new Date((dayData.dt * 1000));
+  return (
     <Card>
-      <Card.Header as="h3">Forecast</Card.Header>
+      <Card.Header as="h3">Forecast {day.toLocaleDateString()}</Card.Header>
       <Card.Body>
-        <Image src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
+        <Image src={`https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`} className='mx-auto d-block' />
         <Card.Text>
-          Maximum Temperature:
+          Maximum Temperature:  {dayData.temp.max}
         </Card.Text>
         <Card.Text>
-          Minimum Temperature:
+          Minimum Temperature: {dayData.temp.min}
         </Card.Text>
         <Card.Text>
-          Humidity:
-        </Card.Text>
-        <Card.Text>
-          Precipitation:
-        </Card.Text>
-        <Card.Text>
-          Precipitation:
+          Humidity: {dayData.humidity}
         </Card.Text>
       </Card.Body>
-    </Card>
-  </>
-);
+    </Card>);
+};
 
 export default ForecastCard;

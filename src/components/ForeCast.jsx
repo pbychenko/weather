@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import ForecastCard from './ForecastCard.jsx';
 
-const ForeCast = () => (
+const ForeCast = ({ data }) => (
   <>
-    <h1>FORECAST</h1>
+    <h1 className='text-center'>FORECAST</h1>
     <Container>
       <Row className="align-items-center">
-          <Col sm={4}>
-            <ForecastCard />
-          </Col>
-          <Col sm={4}>
-            <ForecastCard />
-          </Col>
-          <Col sm={4}>
-            <ForecastCard />
-          </Col>
+        {data.map((dayData) => <Col key={dayData.dt} sm={3} className='mb-3'><ForecastCard dayData={dayData} /></Col>)}
       </Row>
     </Container>
   </>

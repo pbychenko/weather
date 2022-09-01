@@ -1,33 +1,33 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 import Container from 'react-bootstrap/Container';
 import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
 
-// const baseUrl = 'https://api.openweathermap.org/data';
+const baseUrl = 'https://api.openweathermap.org/data/3.0/onecall?lat=43.25&lon=76.95&units=metric&appid=260023c9f57441c591cecb63eb4bde59';
 // const cities = ['almaty', 'moscow', 'minsk', 'kiev'];
 
 const App = () => {
-  // const [items, setItems] = useState([]);
+  const [current, setCurrent] = useState(null);
+  const [daily, setDaily] = useState([]);
   // const [activePictureData, setActivePictureData] = useState(null);
   // const [showModal, setShowModal] = useState(false);
   // const [showErrorBlock, setShowErrorBlock] = useState(false);
   // const [form, setForm] = useState({ name: '', comment: '' });
 
-  // const getDataRequest = async () => {
-  //   const uri = baseUrl;
-  //   try {
-  //     const res = await axios.get(uri);
-  //     setItems(res.data);
-  //   } catch (error) {
-  //     setShowErrorBlock(true);
-  //     throw error;
-  //   }
-  // };
+  const getDataRequest = async () => {
+    try {
+      const res = await axios.get(baseUrl);
+      setCurrent(res.data.current);
+      setDaily(res.data.daily);
+    } catch (error) {
+      // setShowErrorBlock(true);
+      console.log(error);
+      throw error;
+    }
+  };
 
   // const openCard = async (id) => {
   //   const uri = baseUrl + (id ? `/${id}` : '');
@@ -41,9 +41,9 @@ const App = () => {
   //   }
   // };
 
-  // useEffect(() => {
-  //   getDataRequest();
-  // }, []);
+  useEffect(() => {
+    getDataRequest();
+  }, []);
 
   // const handleClick = (id) => () => openCard(id);
   // const renderPictures = () => (
@@ -94,29 +94,17 @@ const App = () => {
   //     </Alert>
   //   );
   // }
-  const [key, setKey] = useState('today');
+  // const [key, setKey] = useState('today');
+
+  // console.log(current);
+  // console.log(daily);
 
   return (
     <>
       <Container>
-        {/* <Tabs
-          defaultActiveKey="home"
-          // transition={false}
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-          className="mb-3"
-          fill
-        >
-          <Tab eventKey="today" title="Погода сегодня"> */}
-            {/* <CityInput /> */}
-            <TodayCard />
-            <ForeCast />
-          {/* </Tab> */}
-          {/* <Tab eventKey="future" title="Погода в будущем">
-            <CityInput />
-          </Tab> */}
-      {/* </Tabs> */}
+        {/* <CityInput /> */}
+        <TodayCard data={current}/>
+        <ForeCast data={daily}/>
       </Container>
     </>
   );
