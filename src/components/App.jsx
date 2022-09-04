@@ -6,16 +6,19 @@ import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
 
+
 const baseUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=43.25&lon=76.95&units=metric&appid=${token}`;
+
 // const cities = ['almaty', 'moscow', 'minsk', 'kiev'];
 
 const App = () => {
   const [current, setCurrent] = useState(null);
   const [daily, setDaily] = useState([]);
+  const [coords, setCoords] = useState({ lat: '', lon: '' });
   // const [activePictureData, setActivePictureData] = useState(null);
   // const [showModal, setShowModal] = useState(false);
   // const [showErrorBlock, setShowErrorBlock] = useState(false);
-  // const [form, setForm] = useState({ name: '', comment: '' });
+  const [form, setForm] = useState({ city: '' });
 
   const getDataRequest = async () => {
     try {
@@ -45,30 +48,28 @@ const App = () => {
     getDataRequest();
   }, []);
 
-  // const handleClick = (id) => () => openCard(id);
-  // const renderPictures = () => (
-  //   items.map((el) => <Card key={el.id} src={el.url} onClickAction={handleClick(el.id)}/>)
-  // );
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setForm({ ...form, [name]: value });
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { name, comment } = form;
-  //   const { id } = activePictureData;
-
-  //   try {
-  //     await axios.post(`${baseUrl}/${id}/comments`, { name, comment });
-  //     setForm({ name: '', comment: '' });
-  //     setShowModal(false);
-  //   } catch (error) {
-  //     setShowErrorBlock(true);
-  //     throw error;
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { city } = form;
+    const baseUrl2 = `http://api.openweathermap.org/geo/1.0/direct?q=${city}ы&appid=${token}`;
+    try {
+      const res = await axios.get(baseUrl2);
+      console.log(res)
+      // setCurrent(res.data.current);
+      // setDaily(res.data.daily);
+      setForm({ city: '' });
+      // setShowModal(false);
+    } catch (error) {
+      console.log(error);
+      // setShowErrorBlock(true);
+      throw error;
+    }
+  };
 
   // const handleCloseModal = () => {
   //   setShowModal(false);
@@ -102,9 +103,12 @@ const App = () => {
   return (
     <>
       <Container>
-        {/* <CityInput /> */}
-        <TodayCard data={current}/>
-        <ForeCast data={daily}/>
+        <CityInput onFormChange={handleChange}
+          onFormSubmit={handleSubmit}
+          formData={form}
+        />
+        {current !== null ? (<TodayCard data={current}/>) : null}
+        {daily !== [] ? (<ForeCast data={daily}/>) : null}
       </Container>
     </>
   );

@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-const CityInput = () => (
+const CityInput = ({ formData, onFormChange, onFormSubmit }) => (
   <>
     <Image src='logo.png' height={144} width={144} className='mb-3' />
-    <Form >
+    <Form onSubmit={onFormSubmit}>
       <Row className="align-items-center">
         <Col sm={4}>
           <Form.Control
             className="mb-2"
-            id="inlineFormInput"
+            name="city"
             placeholder="city"
+            value = {formData.city}
+            onChange={onFormChange}
           />
         </Col>
         <Col sm={2}>
@@ -22,8 +24,8 @@ const CityInput = () => (
             Submit
           </Button>
         </Col>
-    </Row>
-  </Form>
+      </Row>
+    </Form>
   </>
 );
 
