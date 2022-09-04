@@ -1,13 +1,11 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
 import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
-
-const token = '260023c9f57441c591cecb63eb4bde59';
 
 const App = () => {
   const [current, setCurrent] = useState(null);
@@ -21,10 +19,6 @@ const App = () => {
     setCurrent(res.data.current);
     setDaily(res.data.daily);
   };
-
-  // useEffect(() => {
-  //   getDataRequest();
-  // }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +45,6 @@ const App = () => {
       throw error;
     }
   };
-  
-  console.log('test')
 
   return (
     <>
