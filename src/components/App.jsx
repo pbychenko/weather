@@ -40,7 +40,7 @@ const App = () => {
   return (
     <>
       <Container>
-         <CityInput onFormSubmit={handleSubmit} />
+        <CityInput onFormSubmit={handleSubmit} />
         {errorBlock !== '' ? (<Alert variant='info' className="text-center">{errorBlock}</Alert>) : null}
         {current !== null ? (<TodayCard data={current}/>) : null}
         {daily !== [] ? (<ForeCast data={daily}/>) : null}
