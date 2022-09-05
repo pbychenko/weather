@@ -8,7 +8,14 @@
   },
   "author": "pbychenko",
   "license": "ISC",
-  "scripts": {},
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "build-app": "npx webpack --env production",
+    "build": "npm run build-app",
+    "postinstall": "npm run build"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/eslint-parser": "^7.18.9",

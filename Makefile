@@ -6,10 +6,13 @@ develop:
 install-deps:
 	npm install
 
+start-frontend:
+	NODE_ENV=production npx webpack serve
+
 build:
 	rm -rf dist
 	NODE_ENV=production npx webpack
-
+	
 publish: 
 	npm publish --dry-run
 
