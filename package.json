@@ -14,6 +14,7 @@
   "scripts": {
     "build-app": "npx webpack --env production",
     "build": "npm run build-app",
+    "start": "NODE_ENV=production",
     "postinstall": "npm run build"
   },
   "devDependencies": {
