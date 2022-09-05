@@ -1,1 +1,1 @@
-frontend: make start-frontend
+frontend: make build
