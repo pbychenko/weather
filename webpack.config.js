@@ -38,7 +38,9 @@ module.exports = {
       template: 'template.html',
       filename: "./index.html"
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
   ],
   devServer: {
     open: true,
