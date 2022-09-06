@@ -39,7 +39,7 @@ module.exports = {
       filename: "./index.html"
     }),
     new webpack.DefinePlugin({
-      'process.env.APD_KEY': JSON.stringify(process.env.APD_KEY)
+      'process.env.APD_KEY': process.env.APD_KEY
     }),
   ],
   devServer: {
