@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
+
 console.log('isProduction', isProduction);
 
 module.exports = {
@@ -35,6 +37,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'template.html',
       filename: "./index.html"
+    }),
+    new webpack.DefinePlugin({
+      'process.env.APD_KEY': JSON.stringify(process.env.APD_KEY)
     }),
   ],
   devServer: {

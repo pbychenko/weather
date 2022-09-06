@@ -7,7 +7,7 @@ import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
 
-const token = '260023c9f57441c591cecb63eb4bde59';
+const token = process.env.APD_KEY;
 const App = () => {
   const [current, setCurrent] = useState(null);
   const [daily, setDaily] = useState([]);
@@ -37,7 +37,7 @@ const App = () => {
       throw error;
     }
   };
-  console.log('test', process.env);
+  console.log('test', process.env.APD_KEY);
 
   return (
     <>
