@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -38,9 +38,7 @@ module.exports = {
       template: 'template.html',
       filename: "./index.html"
     }),
-    new webpack.DefinePlugin({
-      'APD_KEY': JSON.stringify(process.env.APD_KEY)
-    }),
+    new Dotenv(),
   ],
   devServer: {
     open: true,

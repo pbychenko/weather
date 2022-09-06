@@ -7,7 +7,7 @@ import CityInput from './CityInput.jsx';
 import TodayCard from './TodayCard.jsx';
 import ForeCast from './ForeCast.jsx';
 
-const token = APD_KEY;
+const token = process.env.APD_KEY;
 
 const App = () => {
   const [current, setCurrent] = useState(null);
@@ -22,7 +22,7 @@ const App = () => {
   };
 
   const handleSubmit = async (city) => {
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${token}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${token}`;
     try {
       const resposeData = (await axios.get(url)).data[0];
       if (resposeData) {
@@ -38,7 +38,8 @@ const App = () => {
       throw error;
     }
   };
-  console.log('test 1', APD_KEY);
+
+  console.log('test 1', process.env.NODE_ENV);
 
   return (
     <>
