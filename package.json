@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo here && rm -rf dist && NODE_ENV=production npx webpack"
+    "build": "echo here && rm -rf dist && NODE_ENV=production npx webpack",
+    "start": "dist/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
