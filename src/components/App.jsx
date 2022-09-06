@@ -37,7 +37,6 @@ const App = () => {
       throw error;
     }
   };
-  console.log(process.env.NODE_ENV)
 
   return (
     <>
