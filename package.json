@@ -12,10 +12,8 @@
     "node": ">= 14"
   },
   "scripts": {
-    "build-app": "npx webpack --env production",
-    "build": "npm run build-app",
-    "start": "NODE_ENV=production",
-    "postinstall": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production npx webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
@@ -33,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "file-loader": "^6.2.0",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",

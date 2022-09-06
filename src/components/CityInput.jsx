@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import { useFormik } from 'formik';
+import logo from '../../public/logo.png'
 
 const CityInput = ({ onFormSubmit }) => {
   const formik = useFormik({
@@ -26,7 +27,7 @@ const CityInput = ({ onFormSubmit }) => {
 
   return (
     <>
-      <Image src='logo.png' height={144} width={144} className='mb-3' />
+      <Image src={logo} height={144} width={144} className='mb-3' />
       <Form onSubmit={formik.handleSubmit}>
         <Row className="align-items-center">
           <Col sm={4}>
