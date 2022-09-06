@@ -37,6 +37,7 @@ const App = () => {
       throw error;
     }
   };
+  console.log('test', process.env.APD_KEY);
 
   return (
     <>
