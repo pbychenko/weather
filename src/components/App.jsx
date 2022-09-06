@@ -39,9 +39,6 @@ const App = () => {
     }
   };
 
-  console.log('test 1', process.env.NODE_ENV);
-  console.log(process.env.APD_KEY)
-
   return (
     <>
       <Container>
