@@ -2,7 +2,7 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import ForecastCard from './ForecastCard.jsx';
+import ForecastCard from './ForecastCard';
 
 const ForeCast = ({ data }) => (
   <>

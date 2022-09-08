@@ -1,8 +1,10 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import Container from 'react-bootstrap/Container'
-import { Col, Row } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import routes from './routes';
 
 const TodayCard = ({ data }) => (
   <>
@@ -30,7 +32,7 @@ const TodayCard = ({ data }) => (
                 Wind speed: {data.wind_speed}
               </Card.Text>
               <Card.Text>
-                <Image src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
+                <Image src={routes.getImagePath(data.weather[0].icon)} />
               </Card.Text>
             </Col>
           </Row>
