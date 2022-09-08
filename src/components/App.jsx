@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
@@ -18,6 +18,7 @@ const App = () => {
     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${token}`;
     const res = await axios.get(url);
     setCurrent(res.data.current);
+    
     setDaily(res.data.daily);
   };
 
@@ -27,6 +28,7 @@ const App = () => {
       const resposeData = (await axios.get(url)).data[0];
       if (resposeData) {
         const { lat, lon } = resposeData;
+        // console.log(resposeData)
         await getDataRequest(lat, lon);
       } else {
         setErrorBlock('incorrect city');
