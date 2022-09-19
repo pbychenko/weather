@@ -1,3 +1,3 @@
-приложение погода
+приложение Погода
 
 https://psweatherapp.herokuapp.com/
