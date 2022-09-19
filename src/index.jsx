@@ -1,5 +1,4 @@
 import 'bootstrap/dist/js/bootstrap.bundle';
-// import ReactDOM from 'react-dom';
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import App from './components/App.jsx';
@@ -10,7 +9,3 @@ root.render(
     <App />
   </React.StrictMode>,
 );
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('app'),
-// );

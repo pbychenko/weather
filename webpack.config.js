@@ -1,4 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+console.log('isProduction', isProduction);
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -18,11 +23,23 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'template.html',
+      filename: "./index.html"
+    }),
+    new Dotenv({
+      systemvars: true,
     }),
   ],
   devServer: {
