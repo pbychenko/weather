@@ -36,8 +36,8 @@ const TodayCard = ({ data }) => (
               </Card.Text>
             </Col>
           </Row>
-        </Container>        
-      </Card.Body>      
+        </Container>
+      </Card.Body>
     </Card>
   </>
 );

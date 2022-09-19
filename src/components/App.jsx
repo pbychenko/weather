@@ -17,7 +17,6 @@ const App = () => {
     const url = routes.getWeatherDataPath(lat, lon);
     const res = await axios.get(url);
     setCurrent(res.data.current);
-    
     setDaily(res.data.daily);
   };
 
