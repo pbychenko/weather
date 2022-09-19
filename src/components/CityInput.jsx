@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import { useFormik } from 'formik';
-import logo from '../../public/logo.png'
+import logo from '../../public/logo.png';
 
 const CityInput = ({ onFormSubmit }) => {
   const formik = useFormik({
